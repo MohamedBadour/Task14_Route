@@ -1,0 +1,72 @@
+﻿# Assignment 14 - TypeScript OOP Assignment
+
+## UML Class Diagram
+
+\\\mermaid
+classDiagram
+    class User {
+        #id: number
+        +name: string
+        +email: string
+        -password: string
+        +phone: string
+        -age: number
+        +displayInfo(): void
+    }
+
+    class Admin {
+        -permissions: string[]
+        +manageNote(note: Note, action: string): void
+    }
+
+    class Note {
+        +id: number
+        +title: string
+        +content: string
+        +userId: number
+        +preview(): string
+    }
+
+    class NoteBook {
+        +id: number
+        +name: string
+        -notes: Note[]
+        +owner: User
+        +addNote(note: Note): void
+        +removeNote(id: number): boolean
+        +getNotes(): Note[]
+    }
+
+    class Storage~T~ {
+        -items: T[]
+        +addItem(item: T): void
+        +removeItem(predicate): boolean
+        +getAllItems(): T[]
+    }
+
+    User <|-- Admin : Inheritance
+    User o-- NoteBook : Aggregation (1 User owns many NoteBooks)
+    NoteBook *-- Note : Composition (NoteBook contains Notes)
+    User <-- Note : Association (Note has author User)
+\\\
+
+## Relationships Breakdown:
+1. **Inheritance**: \Admin\ extends \User\.
+2. **Composition**: \NoteBook\ contains \Note\ instances.
+3. **Aggregation**: \User\ can own multiple \NoteBook\ instances.
+4. **Association**: \Note\ references \User\ as author.
+5. **Generics**: Generic class \Storage<T>\.
+
+## How to run:
+\\\ash
+npm install
+npm run dev
+# or build & run
+npm start
+\\\
+"@ | Out-File -FilePath "D:\Assignments\assignment-14\README.md" -Encoding utf8
+
+# .gitignore
+@"
+node_modules/
+dist/

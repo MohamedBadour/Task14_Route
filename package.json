@@ -1,0 +1,16 @@
+﻿{
+  "name": "assignment-14",
+  "version": "1.0.0",
+  "description": "TypeScript OOP Assignment - Simple Notes Management System",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
